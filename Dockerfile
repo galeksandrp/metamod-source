@@ -1,5 +1,7 @@
 FROM galeksandrp/travistest:docker-css-user
+USER root
 RUN apt-get update && apt-get install -y git
+USER css
 COPY .git /home/css/metamod/.git
 WORKDIR /home/css/metamod
 COPY product.version product.version
