@@ -5,6 +5,7 @@ USER css
 COPY .git /home/css/metamod/.git
 WORKDIR /home/css/metamod
 COPY product.version product.version
+RUN chown -R css:css .git
 RUN git fetch --unshallow origin HEAD
 RUN git remote add upstream https://github.com/alliedmodders/metamod-source.git
 RUN git fetch upstream 1.10-dev
