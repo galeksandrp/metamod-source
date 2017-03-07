@@ -1,11 +1,11 @@
 FROM galeksandrp/travistest:docker-css-user
 USER root
 RUN apt-get update && apt-get install -y git
-USER css
-COPY .git /home/css/metamod/.git
 WORKDIR /home/css/metamod
+COPY .git .git
 COPY product.version product.version
-RUN chown -R css:css .git
+RUN chown -R css:css .
+USER css
 RUN git fetch --unshallow origin HEAD
 RUN git remote add upstream https://github.com/alliedmodders/metamod-source.git
 RUN git fetch upstream 1.10-dev
